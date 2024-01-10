@@ -1,3 +1,4 @@
+import Navbar from '@/app/components/Navbar'
 import type { Metadata } from 'next'
 import './globals.css'
 
@@ -14,6 +15,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body>
+        <Navbar />
         <main className='flex min-h-screen flex-col p-5'>
           {children}
         </main>
