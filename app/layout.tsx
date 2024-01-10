@@ -13,7 +13,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <body>{children}</body>
+      <body>
+        <main className='flex min-h-screen flex-col p-5'>
+          {children}
+        </main>
+      </body>
     </html>
   )
 }
