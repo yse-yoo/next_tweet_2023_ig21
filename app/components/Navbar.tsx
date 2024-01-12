@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 const Navbar = () => {
+    console.log('Navbar!!!')
     return (
         <nav>
             <div className='flex flex-wrap items-center mx-auto py-4'>
