@@ -20,22 +20,19 @@ const Navbar = () => {
                     <NavbarLink
                         href="/user/profile"
                         label="Profile"
-                        onClick={undefined}
                     />
                     <NavbarLink
                         href="/auth/regist"
                         label="Register"
-                        onClick={undefined}
                     />
                     <NavbarLink
                         href="/auth/login"
                         label="Sign in"
-                        onClick={undefined}
                     />
                     <NavbarLink
                         href="#"
                         label="Sign out"
-                        onClick={undefined}
+                        onClick={() => { alert('Sign out!!!!') }}
                     />
                 </div>
             </div>
