@@ -3,7 +3,7 @@
 const ProfilePage = () => {
     return (
         <div>
-            Enter
+            <h1 className="text-2xl text-center font-bold">Profile</h1>
         </div>
     );
 }
