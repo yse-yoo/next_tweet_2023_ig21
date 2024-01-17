@@ -10,7 +10,7 @@ const ProfilePage = () => {
             <div className="flex justify-center p-3">
                 <Image
                     src={imageMe}
-                    className="h-36 w-36"
+                    className="rounded-full h-36 w-36"
                     alt=""
                 />
             </div>
