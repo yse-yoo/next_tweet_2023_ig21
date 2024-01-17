@@ -23,6 +23,7 @@ const Input = ({ type, value, placeholder, onChange }: InputProps) => {
     return (
         <input
             type={type}
+            value={value}
             className={className} 
             placeholder={placeholder} 
             onChange={(e) => { onChange && onChange(e.target.value)} }
