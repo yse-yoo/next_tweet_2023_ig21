@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { SiLoopback } from 'react-icons/si';
+import NavbarLink from './NavbarLink';
 
 const Navbar = () => {
     console.log('Navbar!!!')
@@ -16,24 +17,10 @@ const Navbar = () => {
                 </div>
 
                 <div>
-                    <ul className='flex flex-wrap'>
-                        <li>
-                            <Link 
-                            href="/user/profile" 
-                            className="hidden md:inline-block p-3 text-black" >
-                                Profile
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/regist" className='py-2 px-3'>Register</Link>
-                        </li>
-                        <li>
-                            <Link href="/login" className='py-2 px-3'>Sign in</Link>
-                        </li>
-                        <li>
-                            <Link href="/user/logout" className='py-2 px-3'>Sign out</Link>
-                        </li>
-                    </ul>
+                    <NavbarLink />
+                    <NavbarLink />
+                    <NavbarLink />
+                    <NavbarLink />
                 </div>
             </div>
         </nav>
