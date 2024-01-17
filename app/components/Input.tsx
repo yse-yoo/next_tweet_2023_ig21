@@ -12,10 +12,10 @@ const className = `
             focus:border-blue-500
 `
 
-const Input = () => {
+const Input = ({type}) => {
 
     return (
-        <input type="text" className={className} />
+        <input type={type} className={className} />
     );
 }
 
