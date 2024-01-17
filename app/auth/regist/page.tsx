@@ -1,6 +1,7 @@
 "use client"
 
 import { FaUser } from "react-icons/fa";
+import Input from "@/app/components/Input";
 
 const RegistPage = () => {
     return (
@@ -9,6 +10,12 @@ const RegistPage = () => {
                 <FaUser className="mt-1 me-3" />
                 Register
             </h1>
+
+            <div>
+                <Input />
+                <Input />
+                <Input />
+            </div>
         </div>
     );
 }
