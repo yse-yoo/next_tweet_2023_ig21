@@ -1,12 +1,12 @@
 import Link from "next/link";
 
-const NavbarLink = () => {
+const NavbarLink = ({href, label, onClick}) => {
     return (
         <Link
-            href="/user/profile"
+            href={href}
             className="hidden md:inline-block p-3 text-black"
             >
-            Profile
+            {label}
         </Link>
     );
 }
