@@ -2,12 +2,14 @@
 
 import Input from "@/app/components/Input";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FaUser } from "react-icons/fa";
 
 const LoginPage = () => {
     const [email, setEmail] = useState<string>();
     const [password, setPassword] = useState<string>();
+    const router = useRouter();
 
     const auth = async () => {
         const url = "http://localhost:8000/api/auth";
@@ -21,7 +23,11 @@ const LoginPage = () => {
             });
         if (response.ok) {
             const result = await response.json();
-            console.log(result);
+            console.log(result.access_token);
+            if (result.access_token) {
+                // redirect top page
+                router.push('/');
+            }
         }
     }
 
