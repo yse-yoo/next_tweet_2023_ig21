@@ -10,8 +10,20 @@ const RegistPage = () => {
     const [email, setEmail] = useState<string>();
     const [password, setPassword] = useState<string>();
 
-    const regist = () => {
+    const regist = async () => {
+        const url = "http://localhost:8000/api/regist/store";
         console.log(name, email, password)
+
+        const response = await fetch(url,
+            {
+                method: "POST",
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email, password }),
+            });
+        if (response.ok) {
+            const result = await response.json();
+            console.log(result);
+        }
     }
 
     return (
