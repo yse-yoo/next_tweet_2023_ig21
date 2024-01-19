@@ -3,8 +3,18 @@
 import { FaUser } from "react-icons/fa";
 import Input from "@/app/components/Input";
 import Link from "next/link";
+import { useState } from "react";
 
 const RegistPage = () => {
+    var email = "";
+    var password = "";
+
+    const [name, setName] = useState<string>();
+
+    const regist = () => {
+        console.log(name)
+    }
+
     return (
         <div className="mx-auto w-1/3">
             <h1 className="flex text-2xl justify-center font-bold">
@@ -13,7 +23,7 @@ const RegistPage = () => {
             </h1>
 
             <div>
-                <Input type="text" placeholder="Your Name" />
+                <Input type="name" placeholder="Email" onChange={setName} />
                 <Input type="email" placeholder="Email" />
                 <Input type="password" placeholder="Password" />
             </div>
@@ -23,7 +33,7 @@ const RegistPage = () => {
                 w-full bg-black
                 text-white hover:bg-gray-800
                 py-2 px-4 my-3
-                rounded-lg">
+                rounded-lg" onClick={regist}>
                     Sign up
                 </button>
 
