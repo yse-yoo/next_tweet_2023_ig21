@@ -5,6 +5,7 @@ import { User, testUser } from "./models/User";
 import { Tweet } from "./models/Tweet";
 import { getTweets } from "./services/TweetService";
 import TweetForm from "./components/tweet/TweetForm";
+import TweetList from "./components/tweet/TweetList";
 
 export default function Home() {
   //テストユーザの取得
@@ -28,7 +29,8 @@ export default function Home() {
       {
         user?.id > 0 && (
           <>
-          <TweetForm />
+            <TweetForm />
+            <TweetList tweets={tweets} />
           </>
         )
       }
