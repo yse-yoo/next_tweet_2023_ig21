@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ClickButton from "./ClickButton";
+import ClickButton from "../ClickButton";
 
 const TweetForm = () => {
     const [message, setMessage] = useState<string>("")
