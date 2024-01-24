@@ -5,8 +5,11 @@ import Input from "@/app/components/Input";
 import Link from "next/link";
 import { useState } from "react";
 import { registUser } from "@/app/services/UserService";
+import { useRouter } from "next/navigation";
 
 const RegistPage = () => {
+    const router = useRouter();
+
     const [name, setName] = useState<string>("");
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
@@ -19,7 +22,8 @@ const RegistPage = () => {
             console.log(result.error)
             // エラー表示
         } else {
-            // リダイレクト
+            // トップページにリダイレクト
+            router.replace('/')
         }
     }
 
