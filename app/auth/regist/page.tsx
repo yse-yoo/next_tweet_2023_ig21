@@ -45,7 +45,7 @@ const RegistPage = () => {
 
             <div>
                 <ClickButton
-                    label="Post"
+                    label="Sign up"
                     onClick={regist}
                     disabled={isDisable()}
                 />
