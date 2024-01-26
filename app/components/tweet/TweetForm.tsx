@@ -10,6 +10,11 @@ const TweetForm = () => {
 
     const isDisable = () => !message;
 
+    // Tweet投稿のイベントハンドラ
+    const onPost = () => {
+
+    }
+
     return (
         <div>
             <textarea
@@ -22,7 +27,7 @@ const TweetForm = () => {
 
             <ClickButton
                 label="Post"
-                onClick={() => { }}
+                onClick={onPost}
                 disabled={isDisable()}
             />
         </div>
