@@ -24,12 +24,11 @@ export default function Home() {
     })();
   }, [user])
 
-
-
   // Tweetの投稿処理
   const onPostTweet = async (message: string) => {
     const newTweet = await postTweet(user, message) as Tweet;
     console.log(newTweet);
+    // 新しい投稿があれば、現在の投稿一覧に追加
     newTweet?.id && setTweets(currentTweets => [newTweet, ...currentTweets]);
   }
 

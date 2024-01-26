@@ -18,6 +18,7 @@ const TweetForm = ({onPostTweet}:TweetFormProps) => {
     // Tweet投稿のイベントハンドラ
     const onPost = () => {
         onPostTweet(message);
+        setMessage("");
     }
 
     return (
