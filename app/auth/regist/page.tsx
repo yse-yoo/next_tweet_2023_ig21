@@ -8,6 +8,7 @@ import { registUser } from "@/app/services/UserService";
 import { useRouter } from "next/navigation";
 import ClickButton from "@/app/components/ClickButton";
 import FormError from "@/app/components/FormError";
+import LinkButton from "@/app/components/LinkButton";
 
 const RegistPage = () => {
     const router = useRouter();
@@ -56,18 +57,7 @@ const RegistPage = () => {
                     disabled={isDisable()}
                 />
 
-                <Link
-                    href="/auth/login"
-                    className="
-                flex justify-center
-                w-full bg-gray-200
-                text-gray-600 
-                hover:bg-gray-300
-                py-2 px-4 my-3
-                rounded-lg
-                ">
-                    Sign in
-                </Link>
+                <LinkButton href="/auth/login" label="Sign in" />
             </div>
         </div>
     );
