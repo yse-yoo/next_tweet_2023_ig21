@@ -7,6 +7,7 @@ import { useState } from "react";
 import { registUser } from "@/app/services/UserService";
 import { useRouter } from "next/navigation";
 import ClickButton from "@/app/components/ClickButton";
+import FormError from "@/app/components/FormError";
 
 const RegistPage = () => {
     const router = useRouter();
@@ -14,14 +15,16 @@ const RegistPage = () => {
     const [name, setName] = useState<string>("");
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
+    const [error, setError] = useState({name: "", email: "", password: ""});
 
     const regist = async () => {
         console.log(name, email, password)
         // APIにデータ送信（ユーザ登録）
         const result = await registUser({ name, email, password });
-        if (result.error) {
-            console.log(result.error)
+        if (result.error) { 
             // エラー表示
+            setError(result.error);
+            console.log(result.error)
         } else {
             // トップページにリダイレクト
             router.replace('/')
@@ -39,8 +42,11 @@ const RegistPage = () => {
 
             <div>
                 <Input type="name" placeholder="Your Name" onChange={setName} />
+                <FormError message={error?.name} />
                 <Input type="email" placeholder="Email" onChange={setEmail} />
+                <FormError message={error?.email} />
                 <Input type="password" placeholder="Password" onChange={setPassword} />
+                <FormError message={error?.password} />
             </div>
 
             <div>
