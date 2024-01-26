@@ -41,3 +41,22 @@ export const SignIn = async (credentisals: Credentisals) => {
         return data;
     }
 }
+
+export const getUser = async (accessToken: string) => {
+    if (!accessToken) return;
+    // Development URL: http://localhost:8000/api/user
+    const url = LARAVEL_API_URL + "user";
+
+    const response = await fetch(url,
+        {
+            method: "GET",
+            headers: {
+                'Authorization': `Bearer ${accessToken}`,
+                'Content-Type': 'application/json'
+            },
+        });
+    if (response.ok) {
+        const data = await response.json();
+        return data;
+    }
+}
