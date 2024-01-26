@@ -37,7 +37,7 @@ export const SignIn = async (credentisals: Credentisals) => {
         });
     if (response.ok) {
         const data = await response.json();
-        Cookies.set("access_token", data?.access_token);
+        Cookies.set("access_token", data?.access_token, { expires: 30 });
         return data;
     }
 }

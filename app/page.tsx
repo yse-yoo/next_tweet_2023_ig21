@@ -6,11 +6,25 @@ import { Tweet, initialTweet } from "./models/Tweet";
 import { getTweets, postTweet } from "./services/TweetService";
 import TweetForm from "./components/tweet/TweetForm";
 import TweetList from "./components/tweet/TweetList";
+import { useRouter } from "next/navigation";
+import Cookies from "js-cookie";
 
 export default function Home() {
+  const router = useRouter();
+
   //テストユーザの取得
-  const [user] = useState<User>(testUser);
+  const [user, setUser] = useState<User>(testUser);
   const [tweets, setTweets] = useState<Tweet[]>([]);
+
+  useEffect(() => {
+    const token = Cookies.get('access_token');
+    if (token) {
+      user.accessToken = token as string;
+      setUser(user);
+    } else {
+      router.replace('auth/login');
+    }
+  }, [router])
 
   useEffect(() => {
     (async () => {
