@@ -29,7 +29,6 @@ export default function Home() {
   // Tweetの投稿処理
   const onPostTweet = async (message: string) => {
     const newTweet = await postTweet(user, message) as Tweet;
-    newTweet.user = user;
     console.log(newTweet);
     newTweet?.id && setTweets(currentTweets => [newTweet, ...currentTweets]);
   }
