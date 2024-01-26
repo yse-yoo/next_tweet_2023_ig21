@@ -1,4 +1,5 @@
 import { PostUser, User } from "@/app/models/User";
+import Cookies from "js-cookie";
 
 const LARAVEL_API_URL = process.env.NEXT_PUBLIC_LARAVEL_API_URL;
 
@@ -15,5 +16,28 @@ export const registUser = async (postUser: PostUser) => {
     })
     if (response.ok) {
         return await response.json();
+    }
+}
+
+interface Credentisals {
+    email: string;
+    password: string;
+}
+
+export const SignIn = async (credentisals: Credentisals) => {
+    // Development URL: http://localhost:8000/api/auth
+    const url = LARAVEL_API_URL + "auth";
+    console.log(credentisals.email, credentisals.password)
+
+    const response = await fetch(url,
+        {
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(credentisals),
+        });
+    if (response.ok) {
+        const data = await response.json();
+        Cookies.set("access_token", data?.access_token);
+        return data;
     }
 }

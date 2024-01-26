@@ -1,6 +1,5 @@
 import { useState } from "react";
 import ClickButton from "../ClickButton";
-import { Tweet } from "@/app/models/Tweet";
 
 interface TweetFormProps {
     onPostTweet: (message: string) => void;
